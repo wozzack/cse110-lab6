@@ -86,6 +86,8 @@ function initFormHandler() {
     // Extract data from FormData object into recipeObject...
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
+    
+    // B7 INCOMPLETE
 
     addRecipesToDocument(recipeCardInstance); // B8
 

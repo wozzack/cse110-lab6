@@ -77,11 +77,11 @@ function initFormHandler() {
 
   formReference.addEventListener('submit', (event) => { // B3
     
-    let formData = new FormData(formReference); // B4
+    let formDataInstance = new FormData(formReference); // B4
 
     let recipeObject = {}; // B5 
 
-    for (let [key, value] of formData.entries())
+    for (const [key, value] of formDataInstance.entries())
     {
       recipeObject[key] = value;
     }
@@ -90,10 +90,13 @@ function initFormHandler() {
 
     recipeCardInstance.data = recipeObject; // B7
 
-    addRecipesToDocument(recipeCardInstance); // B8
+    // addRecipesToDocument(recipeCardInstance); // B8
+    let mainReference = document.querySelector("main");
+    mainReference.append(recipeCardInstance);
 
-    let recipesInstance = getRecipesFromStorage; // B9
+    let recipesInstance = getRecipesFromStorage(); // B9
     recipesInstance.push(recipeCardInstance);
+    addRecipesToDocument(recipesInstance);
     saveRecipesToStorage(recipesInstance);
   }
   )

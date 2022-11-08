@@ -49,7 +49,7 @@ function addRecipesToDocument(recipes) {
   for (let i = 0; i < recipes.length; i++) {
     let recipeCard = document.createElement("recipe-card");
     recipeCard.data = recipes[i];
-    refToMain.appendChild(recipeCard);
+    refToMain.append(recipeCard);
   }
 }
 

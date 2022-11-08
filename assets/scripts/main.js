@@ -30,6 +30,7 @@ function getRecipesFromStorage() {
   }
   else return JSON.parse(localStorage.getItem('recipes'));
 }
+  
 
 /**
  * Takes in an array of recipes and for each recipe creates a
@@ -63,7 +64,7 @@ function saveRecipesToStorage(recipes) {
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
 
-  localStorage.setItem(recipes, JSON.stringify(recipes));
+  localStorage.setItem(recipes);
 }
 
 /**
@@ -80,14 +81,14 @@ function initFormHandler() {
 
     let recipeObject = {}; // B5 
 
-    for (const [key, value] of formData.entries())
+    for (let [key, value] of formData.entries())
     {
       recipeObject[key] = value;
     }
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    recipeCardInstance.data(recipeObject); // B7
+    recipeCardInstance.data = recipeObject; // B7
 
     addRecipesToDocument(recipeCardInstance); // B8
 
@@ -109,6 +110,7 @@ function initFormHandler() {
     }
   }
   )
+  } 
 
   // B2. TODO - Get a reference to the <form> element
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
@@ -132,4 +134,3 @@ function initFormHandler() {
   // B12. TODO - Clear the local storage
   // B13. TODO - Delete the contents of <main>
 
-}

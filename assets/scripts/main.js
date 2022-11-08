@@ -97,7 +97,7 @@ function initFormHandler() {
   }
   )
 
-  let clearStorage = document.getElementsByClassName("danger")[0]; // B10
+  const clearStorage = document.getElementsByClassName("danger")[0]; // B10
 
   clearStorage.addEventListener('click', (event) => { // B11
 

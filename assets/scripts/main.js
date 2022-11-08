@@ -75,17 +75,22 @@ function saveRecipesToStorage(recipes) {
  * <button>.
  */
 function initFormHandler() {
-  let formReference = document.getElementById("new-recipe");
 
-  formReference.addEventListener('submit', (event) => {
+  let formReference = document.getElementById("new-recipe"); // B2
+
+  formReference.addEventListener('submit', (event) => { // B3
     
-    let formData = new FormData(formReference);
+    let formData = new FormData(formReference); // B4
 
-    let recipeObject = {};
+    let recipeObject = {}; // B5 INCOMPLETE
+    // Extract data from FormData object into recipeObject...
 
-    let recipeCardInstance = document.createElement("recipe-card");
+    let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    let recipesInstance = getRecipesFromStorage;
+    let recipesInstance = getRecipesFromStorage; // B9
+    recipesInstance.push(recipeCardInstance); // B9
+    addRecipesToDocument(recipesInstance); // B9
+    saveRecipesToStorage(recipesInstance); // B9
 
     let mainReference = document.getElementsByTagName("main");
 

@@ -99,7 +99,12 @@ function initFormHandler() {
 
   let clearStorage = document.getElementsByClassName("danger"); // B10
   clearStorage.addEventListener("click", (event) => { // B11
+    localStorage.clear(); // B12
 
+    while (clearStorage.firstChild) // B13
+    {
+      clearStorage.removeChild(clearStorage.firstChild); // B13
+    }
   }
   )
 

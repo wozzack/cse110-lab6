@@ -61,30 +61,30 @@ function saveRecipesToStorage(recipes) {
  * <button>.
  */
 function initFormHandler() {
-
   let formReference = document.getElementById("new-recipe");
 
   formReference.addEventListener('submit', (event) => {
+    
     let formData = new FormData(formReference);
-    customElements.define("recipeObject");
 
-    let recipeObjectInstance = new recipeObject();
-
-    console.log(formData);
+    let recipeObject = {
+      keys: formData.keys(),
+      values: formData.values()
+    }
 
     for (const [key, value] of formData)
     {
-      recipeObject.appendChild('${key}: ${value}\n');
+      recipeObjectInstance.appendChild('${key}: ${value}\n');
     }
-    customElements.define("recipe-card");
+
     let recipeCardInstance = new RecipeCard();
+
     recipeCardInstance.data = recipeObject
   }
   )
 
 
   // B2. TODO - Get a reference to the <form> element
-  
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
 

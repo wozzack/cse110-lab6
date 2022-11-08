@@ -61,6 +61,9 @@ function saveRecipesToStorage(recipes) {
  * <button>.
  */
 function initFormHandler() {
+  
+  let formReference = document.getElementById("new-recipe");
+
 
   // B2. TODO - Get a reference to the <form> element
   

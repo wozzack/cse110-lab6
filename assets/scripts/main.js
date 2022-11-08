@@ -63,8 +63,11 @@ function saveRecipesToStorage(recipes) {
 function initFormHandler() {
 
   let formReference = document.getElementById("new-recipe");
+
   formReference.addEventListener('submit', (event) => {
-    
+    customElements.define("formData", formReference);
+    customElements.define("recipeObject");
+    recipeObject.appendChild()
   }
   )
 

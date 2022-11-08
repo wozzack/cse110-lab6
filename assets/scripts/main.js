@@ -28,8 +28,11 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-  let recipesReference = localStorage.getItem('recipes');
-  return recipesReference;
+  let r = localStorage.getItem('recipes');
+  if (r == null || r.length == 0) {
+    return [];
+  }
+  else return JSON.parse(localStorage.getItem('recipes'));
 }
 
 /**
@@ -41,17 +44,17 @@ function getRecipesFromStorage() {
  */
 function addRecipesToDocument(recipes) {
   // A10. TODO - Get a reference to the <main> element
+  let refToMain = document.querySelector("main");
   // A11. TODO - Loop through each of the recipes in the passed in array,
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
-  let mainReference = document.getElementsByTagName('main');
-  for (const recipe of recipes)
-  {
-    let recipeCardInstance = document.createElement("recipe-card");
-    recipeCardInstance.data(recipe);
-    mainReference.appendChild(recipeCardInstance);
+  for (let i = 0; i < recipes.length; i++) {
+    let recipeCard = document.createElement("recipe-card");
+    recipeCard.data = recipes[i];
+    refToMain.append(recipeCard);
   }
+}
 
 /**
  * Takes in an array of recipes, converts it to a string, and then
@@ -80,16 +83,9 @@ function initFormHandler() {
 
     let recipeObject = {};
 
-    /*
-    for (const [key, value] of formData)
-    {
-      recipeObject.entriesTest = formData.entries();
-    }
-    */
-    recipeObject.entriesTest = formData.entries();
-    let recipeCardInstance = new RecipeCard();
+    let recipeCardInstance = document.createElement("recipe-card");
 
-    recipeCardInstance.data = recipeObject.entriesTest;
+    let recipesInstance = getRecipesFromStorage;
 
     let mainReference = document.getElementsByTagName("main");
 

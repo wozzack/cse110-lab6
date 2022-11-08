@@ -87,9 +87,10 @@ function initFormHandler() {
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
+    addRecipesToDocument(recipeCardInstance); // B8
+
     let recipesInstance = getRecipesFromStorage; // B9
     recipesInstance.push(recipeCardInstance); // B9
-    addRecipesToDocument(recipesInstance); // B9
     saveRecipesToStorage(recipesInstance); // B9
   }
   )

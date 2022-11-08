@@ -48,7 +48,7 @@ function addRecipesToDocument(recipes) {
   for (let i = 0; i < recipes.length; i++) {
     let recipeCard = document.createElement("recipe-card");
     recipeCard.data = recipes[i];
-    refToMain.append(recipeCard);
+    refToMain.appendChild(recipeCard);
   }
 }
 
@@ -63,7 +63,7 @@ function saveRecipesToStorage(recipes) {
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
 
-  localStorage.setItem(recipes);
+  localStorage.setItem(recipes, JSON.stringify(recipes));
 }
 
 /**

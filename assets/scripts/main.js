@@ -79,7 +79,7 @@ function initFormHandler() {
     let formData = new FormData(formReference); // B4
 
     let recipeObject = {}; // B5 
-    
+
     for (const [key, value] of formData.entries())
     {
       recipeObject[key] = value;
@@ -87,23 +87,25 @@ function initFormHandler() {
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    // B7 INCOMPLETE
+    recipeCardInstance.data = recipeObject;
 
     addRecipesToDocument(recipeCardInstance); // B8
 
     let recipesInstance = getRecipesFromStorage; // B9
-    recipesInstance.push(recipeCardInstance); // B9
-    saveRecipesToStorage(recipesInstance); // B9
+    recipesInstance.push(recipeCardInstance);
+    saveRecipesToStorage(recipesInstance);
   }
   )
 
   let clearStorage = document.getElementsByClassName("danger"); // B10
+
   clearStorage.addEventListener("click", (event) => { // B11
+
     localStorage.clear(); // B12
 
     while (clearStorage.firstChild) // B13
     {
-      clearStorage.removeChild(clearStorage.firstChild); // B13
+      clearStorage.removeChild(clearStorage.firstChild);
     }
   }
   )

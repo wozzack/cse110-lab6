@@ -87,7 +87,7 @@ function initFormHandler() {
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    recipeCardInstance.data = recipeObject; // B7
+    recipeCardInstance.data(recipeObject); // B7
 
     addRecipesToDocument(recipeCardInstance); // B8
 
@@ -97,7 +97,7 @@ function initFormHandler() {
   }
   )
 
-  let clearStorage = document.getElementsByClassName("danger"); // B10
+  let clearStorage = document.getElementsByClassName("danger")[0]; // B10
 
   clearStorage.addEventListener('click', (event) => { // B11
 

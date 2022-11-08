@@ -87,7 +87,7 @@ function initFormHandler() {
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    recipeCardInstance.data = recipeObject;
+    recipeCardInstance.data = recipeObject; // B7
 
     addRecipesToDocument(recipeCardInstance); // B8
 

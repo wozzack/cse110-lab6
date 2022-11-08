@@ -24,6 +24,7 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
+
   let r = localStorage.getItem('recipes');
   if (r == null || r.length == 0) {
     return [];
@@ -73,22 +74,35 @@ function saveRecipesToStorage(recipes) {
  */
 function initFormHandler() {
 
-  let formReference = document.getElementById("new-recipe"); // B2
+  //let formReference = document.getElementById("new-recipe"); // B2
+  let formReference = document.querySelector("form");
+
+  console.log("fuck me1");
+
+  let formDataInstance2 = new FormData(formReference); // B4
+  console.log(formDataInstance2.entries());
 
   formReference.addEventListener('submit', (event) => { // B3
+    event.preventDefault();
     
     let formDataInstance = new FormData(formReference); // B4
-
+    console.log("fuck me2");
     let recipeObject = {}; // B5 
+    console.log("fuck me3");
 
     for (let [key, value] of formDataInstance.entries())
     {
       recipeObject[key] = value;
     }
 
+    console.log(recipeObject);
+
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
     recipeCardInstance.data = recipeObject; // B7
+
+    console.log("hopium");
+    console.log(recipeCardInstance);
 
     // addRecipesToDocument(recipeCardInstance); // B8
     let mainReference = document.querySelector("main");
@@ -100,10 +114,13 @@ function initFormHandler() {
     saveRecipesToStorage(recipesInstance);
   }
   )
+  console.log("fuck me4");
 
   const clearStorage = document.getElementsByClassName("danger")[0]; // B10
+  console.log("fuck me5");
 
   clearStorage.addEventListener('click', (event) => { // B11
+    console.log("fuck me6");
 
     localStorage.clear(); // B12
 
@@ -113,6 +130,7 @@ function initFormHandler() {
     }
   }
   )
+  console.log("fuck me7");
   } 
 
   // B2. TODO - Get a reference to the <form> element

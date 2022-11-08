@@ -63,7 +63,7 @@ function saveRecipesToStorage(recipes) {
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
 
-  localStorage.setItem(recipes);
+  localStorage.setItem('recipes', JSON.stringify(recipes));
 }
 
 /**
@@ -80,14 +80,14 @@ function initFormHandler() {
 
     let recipeObject = {}; // B5 
 
-    for (const [key, value] of formData.entries())
+    for (let [key, value] of formData.entries())
     {
       recipeObject[key] = value;
     }
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 
-    recipeCardInstance.data(recipeObject); // B7
+    recipeCardInstance.data = recipeObject; // B7
 
     addRecipesToDocument(recipeCardInstance); // B8
 

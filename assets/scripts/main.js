@@ -81,7 +81,7 @@ function initFormHandler() {
 
     let recipeObject = {}; // B5 
 
-    for (const [key, value] of formDataInstance.entries())
+    for (let [key, value] of formDataInstance.entries())
     {
       recipeObject[key] = value;
     }

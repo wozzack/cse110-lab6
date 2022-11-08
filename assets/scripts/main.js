@@ -86,7 +86,7 @@ function initFormHandler() {
     // Extract data from FormData object into recipeObject...
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
-    
+
     // B7 INCOMPLETE
 
     addRecipesToDocument(recipeCardInstance); // B8
@@ -97,6 +97,11 @@ function initFormHandler() {
   }
   )
 
+  let clearStorage = document.getElementsByClassName("danger"); // B10
+  clearStorage.addEventListener("click", (event) => { // B11
+
+  }
+  )
 
   // B2. TODO - Get a reference to the <form> element
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the

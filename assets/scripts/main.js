@@ -62,6 +62,8 @@ function saveRecipesToStorage(recipes) {
   // B1. TODO - Complete the functionality as described in this function
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
+
+  localStorage.setItem(recipes);
 }
 
 /**
@@ -69,9 +71,30 @@ function saveRecipesToStorage(recipes) {
  * <button>.
  */
 function initFormHandler() {
+  let formReference = document.getElementById("new-recipe");
+
+  formReference.addEventListener('submit', (event) => {
+    
+    let formData = new FormData(formReference);
+
+    let recipeObject = {
+      keys: formData.keys(),
+      values: formData.values()
+    }
+
+    for (const [key, value] of formData)
+    {
+      recipeObjectInstance.appendChild('${key}: ${value}\n');
+    }
+
+    let recipeCardInstance = new RecipeCard();
+
+    recipeCardInstance.data = recipeObject
+  }
+  )
+
 
   // B2. TODO - Get a reference to the <form> element
-  
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
 

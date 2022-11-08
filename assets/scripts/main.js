@@ -65,9 +65,20 @@ function initFormHandler() {
   let formReference = document.getElementById("new-recipe");
 
   formReference.addEventListener('submit', (event) => {
-    customElements.define("formData", formReference);
+    let formData = new FormData(formReference);
     customElements.define("recipeObject");
-    recipeObject.appendChild()
+
+    let recipeObjectInstance = new recipeObject();
+
+    console.log(formData);
+
+    for (const [key, value] of formData)
+    {
+      recipeObject.appendChild('${key}: ${value}\n');
+    }
+    customElements.define("recipe-card");
+    let recipeCardInstance = new RecipeCard();
+    recipeCardInstance.data = recipeObject
   }
   )
 

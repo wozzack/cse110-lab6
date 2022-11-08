@@ -1,5 +1,9 @@
 // main.js
-
+// Called when the .data property is set on this element.
+//
+// For Example:
+// let recipeCard = document.createElement('recipe-card'); // Calls constructor()
+// recipeCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
 // Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init);
 
@@ -24,7 +28,8 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-
+  let recipesReference = localStorage.getItem('recipes');
+  return recipesReference;
 }
 
 /**
@@ -40,7 +45,13 @@ function addRecipesToDocument(recipes) {
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
-}
+  let mainReference = document.getElementsByTagName('main');
+  for (const recipe of recipes)
+  {
+    let recipeCardInstance = document.createElement("recipe-card");
+    recipeCardInstance.data(recipe);
+    mainReference.appendChild(recipeCardInstance);
+  }
 
 /**
  * Takes in an array of recipes, converts it to a string, and then
@@ -81,8 +92,10 @@ function initFormHandler() {
     recipeCardInstance.data = recipeObject.entriesTest;
 
     let mainReference = document.getElementsByTagName("main");
-    
+
     mainReference.appendChild(recipeCardInstance);
+    let recipesReference = getRecipesFromStorage(); // to be implemented...
+    recipesReference.push()
   }
   )
 

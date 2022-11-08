@@ -67,19 +67,22 @@ function initFormHandler() {
     
     let formData = new FormData(formReference);
 
-    let recipeObject = {
-      keys: formData.keys(),
-      values: formData.values()
-    }
+    let recipeObject = {};
 
+    /*
     for (const [key, value] of formData)
     {
-      recipeObjectInstance.appendChild('${key}: ${value}\n');
+      recipeObject.entriesTest = formData.entries();
     }
-
+    */
+    recipeObject.entriesTest = formData.entries();
     let recipeCardInstance = new RecipeCard();
 
-    recipeCardInstance.data = recipeObject
+    recipeCardInstance.data = recipeObject.entriesTest;
+
+    let mainReference = document.getElementsByTagName("main");
+    
+    mainReference.appendChild(recipeCardInstance);
   }
   )
 

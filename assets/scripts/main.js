@@ -1,9 +1,5 @@
 // main.js
-// Called when the .data property is set on this element.
-//
-// For Example:
-// let recipeCard = document.createElement('recipe-card'); // Calls constructor()
-// recipeCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+
 // Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init);
 
@@ -82,8 +78,12 @@ function initFormHandler() {
     
     let formData = new FormData(formReference); // B4
 
-    let recipeObject = {}; // B5 INCOMPLETE
-    // Extract data from FormData object into recipeObject...
+    let recipeObject = {}; // B5 
+    
+    for (const [key, value] of formData.entries())
+    {
+      recipeObject[key] = value;
+    }
 
     let recipeCardInstance = document.createElement("recipe-card"); // B6
 

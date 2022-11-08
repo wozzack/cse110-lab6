@@ -91,12 +91,6 @@ function initFormHandler() {
     recipesInstance.push(recipeCardInstance); // B9
     addRecipesToDocument(recipesInstance); // B9
     saveRecipesToStorage(recipesInstance); // B9
-
-    let mainReference = document.getElementsByTagName("main");
-
-    mainReference.appendChild(recipeCardInstance);
-    let recipesReference = getRecipesFromStorage(); // to be implemented...
-    recipesReference.push()
   }
   )
 

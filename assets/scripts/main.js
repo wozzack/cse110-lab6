@@ -30,6 +30,7 @@ function getRecipesFromStorage() {
   }
   else return JSON.parse(localStorage.getItem('recipes'));
 }
+  
 
 /**
  * Takes in an array of recipes and for each recipe creates a
@@ -109,6 +110,7 @@ function initFormHandler() {
     }
   }
   )
+  } 
 
   // B2. TODO - Get a reference to the <form> element
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
@@ -132,4 +134,3 @@ function initFormHandler() {
   // B12. TODO - Clear the local storage
   // B13. TODO - Delete the contents of <main>
 
-}
